@@ -42,3 +42,14 @@ There are a few localhost installation options available to deploy single- or mu
  * Tectonic by CoreOS
 * **Bare Metal**
 Kubernetes can be installed on Bare Metal provided by different cloud providers.
+
+## Kubernetes Installation Tools/Resources
+* **kubeadm**
+ * It is a secure and recommended way to bootstrap the Kubernetes cluster.
+ * It has a set of building blocks to setup the cluster, but it is easily extendable to add more functionality
+* **kubespray**
+  * Helps to install Highly Available Kubernetes clusters on AWS, GCE, Azure, OpenStack, or Bare Metal.
+  * It is based on Ansible, and is available on most Linux distributions
+* **kops**
+ * Helps to create, destroy, upgrade, and maintain production-grade, highly-available Kubernetes clusters from the command line.
+ * It can provision the machines as well(early stage)
