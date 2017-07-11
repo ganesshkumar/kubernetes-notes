@@ -58,7 +58,7 @@ A Worker Node has the following components:
  * It is the network proxy that runs on each Worker Node and listens to API Server for Service endpoint creation/deletion.
  * For each Service endpoint, kube-proxy sets up the routes so that it can be reached.
 
- ### State Management with etcd
+### State Management with etcd
  * Based of Raft Consensus Algorithm. Raft allows a collection of machines to work as a coherent group that can survive the failures of some of its members. At any given time, one of the nodes in the group will be the Master, and the rest of them will be the Followers. Any node can be treated as a Master.
  * [TODO] Diagram
  * Besides storing cluster state, it can store configuration details such as subnets, ConfigMaps, Secrets etc.
@@ -68,3 +68,24 @@ A Worker Node has the following components:
 * Containers in a Pod can communicate to each other.
 * The Pod is able to communicate with other Pods in the cluster.
 * If configured, the application running in Pod is accessible to external world.
+
+**Assigning Unique IP Address to Each Pod**
+* Kubernetes uses Container Network Interface(CNI) model to assign IP address to each Pod.
+* [TODO Diagram]
+* The Container Runtime offloads IP assignment to CNI, which connects to underlying configured plugin, like Bridge or MACvlan, to get the IP address.
+* Once IP address is given by the plugin, CNI forwards it back to the requested Container Runtime.
+
+**Container-to-Container Communication Inside a Pod**
+* With the help of host OS, Container Runtimes create an isolated network entity for each container it starts.
+* It is referred as Network Namespace in Linux, which can be shared across container or with the host OS.
+* Inside a Pod, containers share the Network Namespace, so that they can reach each other via localhost.
+
+**Pod-to-Pod Communication Across Nodes**
+* In a cluster, Pods can be schedules on any node. Pods can communicate across the nodes and any node should be able to reach any Pod.
+* Kubernetes also puts a condition that there shouldn't be any Network Address Translation (NAT) while doing the Pod-to-Pod communication across Hosts.
+* We can achieve this via
+  * Routable Pods and nodes, using the underlying physical infrastructure, like Google Container Engine.
+  * Using Software Defined Networking, like Flannel, Weave, Calico, etc.
+
+**Communication Between the External World and Pods**
+* We can access the application from outside the cluster by exposing our services with kube-proxy.
