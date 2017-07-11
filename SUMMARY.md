@@ -6,3 +6,4 @@
 * Chapter 4 - [Installing Kubernetes](/4_installing_kubernetes.md)
 * Chapter 5 - [Setting Up a Single-Node Kubernetes Cluster with Minikube  ](/5_setting_up_a_single_node_kubernetes_cluster_with_minikube)
 * Chapter 6 - [Accessing Minikube](/6_accessing_minikube.md)
+* Chapter 7 - [Kubernetes Building Blocks](/7_kubernetes_building_blocks.md)
