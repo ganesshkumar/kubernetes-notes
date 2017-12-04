@@ -7,6 +7,6 @@
 * [5 - Setting Up a Single-Node Kubernetes Cluster with Minikube  ](/5_setting_up_a_single_node_kubernetes_cluster_with_minikube.md)
 * [6 - Accessing Minikube](/6_accessing_minikube.md)
 * [7 - Kubernetes Building Blocks](/7_kubernetes_building_blocks.md)
-
+* [8 - Services](/8_services.md)
 
 
